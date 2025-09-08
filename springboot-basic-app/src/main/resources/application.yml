@@ -1,8 +1,0 @@
-server.port: 9900
-
-spring:
-  log:
-    dir: ./
-  profiles.active: dev
-  mvc.servlet.path: /
-
