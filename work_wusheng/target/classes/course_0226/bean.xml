@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountService" class="com.xiaomi.wusheng.course_0226.SpringIoC.AccountServiceImpl">
+        <!-- 构造方法注入 -->
+<!--        <constructor-arg name="name" value="张三"></constructor-arg>-->
+<!--        <constructor-arg name="age" value="18"></constructor-arg>-->
+<!--        <constructor-arg name="birthday" ref="now"></constructor-arg>-->
+
+        <!-- 属性注入 -->
+<!--        <property name="name" value="test"></property>-->
+<!--        <property name="age" value="21"></property>-->
+<!--        <property name="birthday" value="now"></property>-->
+
+<!--        <property name="transactionLogs">-->
+<!--            <list>-->
+<!--                <value>Transaction 1</value>-->
+<!--                <value>Transaction 2</value>-->
+<!--            </list>-->
+<!--        </property>-->
+    </bean>
+<!--    <bean id="now" class="java.util.Date"></bean>-->
+
+    <bean id="accountDao" class="com.xiaomi.wusheng.course_0226.SpringIoC.AccountDaoImpl"/>
+
+</beans>

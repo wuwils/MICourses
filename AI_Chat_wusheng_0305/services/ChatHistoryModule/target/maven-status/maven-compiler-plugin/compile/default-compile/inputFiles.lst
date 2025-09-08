@@ -1,0 +1,11 @@
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/controller/ChatHistoryController.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/service/impl/ChatHistoryServiceImpl.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/service/ChatHistoryService.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/model/ChatHistory.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/config/SecurityConfig.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/service/ConversationService.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/dao/ChatHistoryMapper.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/model/Conversation.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/dao/ConversationMapper.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/ChatHistoryApplication.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/ChatHistoryModule/src/main/java/com/xiaomi/chatHistory/service/impl/ConversationServiceImpl.java

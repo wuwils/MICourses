@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>校园二手交易平台</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>校园二手交易平台</h1>
+    <nav>
+        <a th:href="@{/}">首页</a>
+        <a th:href="@{/items}">物品列表</a>
+        <a th:href="@{/auth/login}">登录</a>
+        <a th:href="@{/auth/register}">注册</a>
+    </nav>
+</header>
+<main>
+    <h2>欢迎来到校园二手交易平台</h2>
+    <p>在这里，你可以发布、浏览和购买二手物品。</p>
+</main>
+<footer>
+    <p>&copy; 2025 校园二手交易平台</p>
+</footer>
+</body>
+</html>

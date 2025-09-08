@@ -1,0 +1,2 @@
+日志输出到文件 [WARN]: email=test@example.com
+日志输出到文件 [WARN]: phone=13800138000

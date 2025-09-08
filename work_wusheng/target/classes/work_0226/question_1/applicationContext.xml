@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 使用构造方法注入UserDao到UserService -->
+    <bean id="userService" class="com.xiaomi.wusheng.work_0226.question_1.UserServiceImpl">
+        <constructor-arg ref="userDao"/>
+    </bean>
+
+    <!-- 配置UserDao的作用域为prototype，并指定init和destroy方法输出日志 -->
+    <bean id="userDao" class="com.xiaomi.wusheng.work_0226.question_1.UserDaoImpl" scope="prototype"
+          init-method="init" destroy-method="destroy"/>
+</beans>

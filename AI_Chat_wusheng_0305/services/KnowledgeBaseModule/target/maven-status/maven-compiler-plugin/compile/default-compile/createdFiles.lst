@@ -1,0 +1,7 @@
+com/xiaomi/knowledgeBase/model/KnowledgeBase.class
+com/xiaomi/knowledgeBase/config/SecurityConfig.class
+com/xiaomi/knowledgeBase/service/KnowledgeBaseService.class
+com/xiaomi/knowledgeBase/controller/KnowledgeBaseController.class
+com/xiaomi/knowledgeBase/dao/KnowledgeBaseMapper.class
+com/xiaomi/knowledgeBase/service/impl/KnowledgeBaseServiceImpl.class
+com/xiaomi/knowledgeBase/KnowledgeBaseApplication.class

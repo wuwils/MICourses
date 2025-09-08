@@ -1,0 +1,6 @@
+com/xiaomi/wusheng/work_0303/Application.class
+com/xiaomi/wusheng/work_0303/controller/UserController.class
+com/xiaomi/wusheng/work_0303/model/User.class
+com/xiaomi/wusheng/work_0303/dao/UserMapper.class
+com/xiaomi/wusheng/work_0303/service/UserService.class
+com/xiaomi/wusheng/work_0303/config/SecurityConfig.class

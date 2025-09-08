@@ -1,0 +1,7 @@
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/controller/UserController.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/dao/UserMapper.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/service/impl/UserServiceImpl.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/model/User.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/config/SecurityConfig.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/UserApplication.java
+/home/ubuntu/WorkSpaces/Java/IdeaProjects/MICourses/project_wusheng_0305/backend/UserModule/src/main/java/com/xiaomi/user/service/UserService.java

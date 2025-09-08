@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>物品表单</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>校园二手交易平台</h1>
+    <nav>
+        <a th:href="@{/}">首页</a>
+        <a th:href="@{/items}">物品列表</a>
+        <a th:href="@{/items/new}">发布物品</a>
+        <a th:href="@{/auth/logout}">注销</a>
+    </nav>
+</header>
+<main>
+    <h2 th:text="${item.id == null ? '发布新物品' : '编辑物品'}"></h2>
+    <form th:action="@{/items/{id}(id=${item.id})}" th:object="${item}" method="post">
+        <input type="hidden" name="_method" th:value="${item.id == null ? 'POST' : 'PUT'}">
+        <div>
+            <label for="name">物品名称:</label>
+            <input type="text" id="name" name="name" required th:value="${item.name}">
+        </div>
+        <div>
+            <label for="description">物品描述:</label>
+            <textarea id="description" name="description" required th:text="${item.description}"></textarea>
+        </div>
+        <div>
+            <label for="price">价格:</label>
+            <input type="number" step="0.01" id="price" name="price" required th:value="${item.price}">
+        </div>
+        <button type="submit">保存</button>
+    </form>
+    <p><a th:href="@{/items}">返回物品列表</a></p>
+</main>
+<footer>
+    <p>&copy; 2025 校园二手交易平台</p>
+</footer>
+</body>
+</html>

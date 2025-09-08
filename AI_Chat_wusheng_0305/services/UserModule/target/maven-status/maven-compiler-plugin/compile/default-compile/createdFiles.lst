@@ -1,0 +1,7 @@
+com/xiaomi/user/model/User.class
+com/xiaomi/user/controller/UserController.class
+com/xiaomi/user/dao/UserMapper.class
+com/xiaomi/user/service/UserService.class
+com/xiaomi/user/UserApplication.class
+com/xiaomi/user/config/SecurityConfig.class
+com/xiaomi/user/service/impl/UserServiceImpl.class

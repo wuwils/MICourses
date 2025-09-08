@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>评论</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>校园二手交易平台</h1>
+    <nav>
+        <a th:href="@{/}">首页</a>
+        <a th:href="@{/items}">物品列表</a>
+        <a th:href="@{/logout}">注销</a>
+    </nav>
+</header>
+<main>
+    <h2>评论</h2>
+    <form th:action="@{/comments}" method="post">
+        <input type="hidden" name="item.id" th:value="${item.id}">
+        <textarea name="content" placeholder="添加评论..." required></textarea>
+        <button type="submit">提交评论</button>
+    </form>
+</main>
+<footer>
+    <p>&copy; 2025 校园二手交易平台</p>
+</footer>
+</body>
+</html>

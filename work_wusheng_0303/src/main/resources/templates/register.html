@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册 - AI 客服系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f1f1f1; }
+        .card { margin-top: 2rem; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">AI 客服系统</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>注册</h4>
+                </div>
+                <div class="card-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">用户名</label>
+                            <input type="text" id="userName" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">密码</label>
+                            <input type="password" id="password" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">邮箱</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="register()">注册</button>
+                    </form>
+                    <div id="result" class="mt-3 text-danger"></div>
+                </div>
+                <div class="card-footer text-center">
+                    <p>已有账号？<a th:href="@{/login}" href="/login">返回登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框：注册成功提示 -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">注册成功</h5>
+            </div>
+            <div class="modal-body">
+                注册成功！将在 <span id="countdown">3</span> 秒后自动跳转到登录页面。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="redirectToLogin()">返回登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function register(){
+        var user = {
+            userName: document.getElementById("userName").value,
+            password: document.getElementById("password").value,
+            email: document.getElementById("email").value
+        };
+        fetch('/api/users/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        }).then(response => {
+            if(response.ok) {
+                return response.text();
+            } else {
+                throw new Error("注册失败");
+            }
+        })
+        .then(data => {
+            // 显示提示信息，并弹出模态框
+            document.getElementById("result").innerText = data;
+            showSuccessModal();
+        })
+        .catch(error => {
+            document.getElementById("result").innerText = error;
+        });
+    }
+
+    function showSuccessModal(){
+        // 使用 Bootstrap 的 Modal 显示模态框
+        var modal = new bootstrap.Modal(document.getElementById('successModal'));
+        modal.show();
+        // 开始倒计时
+        var countdownElem = document.getElementById("countdown");
+        var seconds = 3;
+        var timer = setInterval(function(){
+            seconds--;
+            countdownElem.innerText = seconds;
+            if(seconds <= 0){
+                clearInterval(timer);
+                redirectToLogin();
+            }
+        }, 1000);
+    }
+
+    function redirectToLogin(){
+        window.location.href = "/login";
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
