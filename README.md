@@ -91,7 +91,7 @@
 - 课堂练习与课后作业代码
 - Git 配置、SSH 密钥生成、远程推送
 - Maven 项目构建、依赖管理
-- 基础 Java 与 Spring Boot 练
+- 基础 Java 与 Spring Boot 练习
 
 ---
 
