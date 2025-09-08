@@ -1,0 +1,373 @@
+package com.basic.client;
+
+import com.basic.controller.filter.ResponseUtils;
+import com.basic.model.ApiPv;
+import com.basic.utils.JsonUtils;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class WeatherClient {
+    RestTemplate restTemplate = new RestTemplate();
+    static String appId = "49865294";
+    static String appSecret = "1TwatUjl";
+    static String key = "";
+
+    // see http://tianqiapi.com/user/index
+    public String getWeather() {
+        String url = "http://gfeljm.tianqiapi.com/api?unescape=1&version=v63&appid=49865294&appsecret=1TwatUjl";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        String content = response.getBody();
+        JsonNode jsonNode = JsonUtils.toJsonNode(content);
+        /*
+        {
+	"cityid": "101191101",
+	"date": "2025-03-02",
+	"week": "星期日",
+	"update_time": "01:05",
+	"city": "常州",
+	"cityEn": "changzhou",
+	"country": "中国",
+	"countryEn": "China",
+	"wea": "多云",
+	"wea_img": "yun",
+	"tem": "19.6",
+	"tem1": "28",
+	"tem2": "17",
+	"win": "东风",
+	"win_speed": "1级",
+	"win_meter": "4km\/h",
+	"humidity": "71%",
+	"visibility": "5km",
+	"pressure": "1010",
+	"air": "83",
+	"air_pm25": "61",
+	"air_level": "良",
+	"air_tips": "空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响。",
+	"alarm": [{
+		"alarm_type": "大风",
+		"alarm_level": "蓝色",
+		"alarm_title": "江苏省发布大风蓝色预警",
+		"alarm_content": "江苏省气象台2025年03月01日16时21分发布大风蓝色预警：\n受强冷空气和气旋共同影响，预计未来24小时，徐州、连云港、宿迁、淮安、盐城、扬州北部、泰州北部将出现8级左右阵风，我省其他地区将出现7级左右阵风。省应急厅（省防减救灾办）、省气象局提醒注意防范。（预警信息来源：国家预警信息发布中心）"
+	}, {
+		"alarm_type": "寒潮",
+		"alarm_level": "蓝色",
+		"alarm_title": "江苏省发布寒潮蓝色预警",
+		"alarm_content": "江苏省气象台2025年03月01日16时15分发布寒潮蓝色预警：\n受强冷空气影响，预计2-4日，徐州、宿迁、淮安、南京以及扬州和镇江的部分地区48小时最低气温将下降8～10℃，并伴有陆上6-8级，江河湖库及近海海面9-11级的偏北大风。省应急厅（省防减救灾办）、省气象局提醒注意防范。（预警信息来源：国家预警信息发布中心）"
+	}],
+	"rain_pcpn": "0",
+	"uvIndex": "4",
+	"uvDescription": "中等",
+	"wea_day": "雾",
+	"wea_day_img": "wu",
+	"wea_night": "多云",
+	"wea_night_img": "yun",
+	"sunrise": "06:27",
+	"sunset": "17:57",
+	"hours": [{
+		"hours": "01:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "19",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "5.05",
+		"aqinum": "80",
+		"aqi": "良"
+	}, {
+		"hours": "02:00",
+		"wea": "阴",
+		"wea_img": "yin",
+		"tem": "18",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "4.74",
+		"aqinum": "80",
+		"aqi": "良"
+	}, {
+		"hours": "03:00",
+		"wea": "阴",
+		"wea_img": "yin",
+		"tem": "17",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "4.52",
+		"aqinum": "80",
+		"aqi": "良"
+	}, {
+		"hours": "04:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "16",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "4.24",
+		"aqinum": "80",
+		"aqi": "良"
+	}, {
+		"hours": "05:00",
+		"wea": "阴",
+		"wea_img": "yin",
+		"tem": "15",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "3.94",
+		"aqinum": "80",
+		"aqi": "良"
+	}, {
+		"hours": "06:00",
+		"wea": "阴",
+		"wea_img": "yin",
+		"tem": "15",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "3.84",
+		"aqinum": "79",
+		"aqi": "良"
+	}, {
+		"hours": "07:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "15",
+		"win": "东南风",
+		"win_speed": "2级",
+		"vis": "4.03",
+		"aqinum": "77",
+		"aqi": "良"
+	}, {
+		"hours": "08:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "17",
+		"win": "东南风",
+		"win_speed": "3级",
+		"vis": "6.4",
+		"aqinum": "74",
+		"aqi": "良"
+	}, {
+		"hours": "09:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "19",
+		"win": "东南风",
+		"win_speed": "3级",
+		"vis": "13.17",
+		"aqinum": "70",
+		"aqi": "良"
+	}, {
+		"hours": "10:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "21",
+		"win": "东南风",
+		"win_speed": "3级",
+		"vis": "15.36",
+		"aqinum": "67",
+		"aqi": "良"
+	}, {
+		"hours": "11:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "24",
+		"win": "东南风",
+		"win_speed": "3级",
+		"vis": "19.75",
+		"aqinum": "62",
+		"aqi": "良"
+	}, {
+		"hours": "12:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "25",
+		"win": "南风",
+		"win_speed": "3级",
+		"vis": "21.67",
+		"aqinum": "61",
+		"aqi": "良"
+	}, {
+		"hours": "13:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "26",
+		"win": "南风",
+		"win_speed": "3级",
+		"vis": "23.85",
+		"aqinum": "60",
+		"aqi": "良"
+	}, {
+		"hours": "14:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "28",
+		"win": "南风",
+		"win_speed": "2级",
+		"vis": "27.45",
+		"aqinum": "60",
+		"aqi": "良"
+	}, {
+		"hours": "15:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "29",
+		"win": "南风",
+		"win_speed": "2级",
+		"vis": "27.65",
+		"aqinum": "60",
+		"aqi": "良"
+	}, {
+		"hours": "16:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "29",
+		"win": "西南风",
+		"win_speed": "2级",
+		"vis": "27.65",
+		"aqinum": "61",
+		"aqi": "良"
+	}, {
+		"hours": "17:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "26",
+		"win": "西南风",
+		"win_speed": "1级",
+		"vis": "18.43",
+		"aqinum": "64",
+		"aqi": "良"
+	}, {
+		"hours": "18:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "14",
+		"win": "北风",
+		"win_speed": "5级",
+		"vis": "10.02",
+		"aqinum": "69",
+		"aqi": "良"
+	}, {
+		"hours": "19:00",
+		"wea": "晴",
+		"wea_img": "qing",
+		"tem": "12",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "5.6",
+		"aqinum": "78",
+		"aqi": "良"
+	}, {
+		"hours": "20:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "11",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "5.2",
+		"aqinum": "79",
+		"aqi": "良"
+	}, {
+		"hours": "21:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "10",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "5.31",
+		"aqinum": "78",
+		"aqi": "良"
+	}, {
+		"hours": "22:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "10",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "4.84",
+		"aqinum": "74",
+		"aqi": "良"
+	}, {
+		"hours": "23:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "10",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "5.58",
+		"aqinum": "70",
+		"aqi": "良"
+	}, {
+		"hours": "00:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "9",
+		"win": "东北风",
+		"win_speed": "4级",
+		"vis": "7.17",
+		"aqinum": "64",
+		"aqi": "良"
+	}, {
+		"hours": "01:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "9",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "10.1",
+		"aqinum": "58",
+		"aqi": "良"
+	}, {
+		"hours": "02:00",
+		"wea": "多云",
+		"wea_img": "yun",
+		"tem": "8",
+		"win": "北风",
+		"win_speed": "4级",
+		"vis": "9.57",
+		"aqinum": "53",
+		"aqi": "良"
+	}],
+	"aqi": {
+		"update_time": "01:08",
+		"cityid": "101191101",
+		"city": "常州市",
+		"cityEn": "",
+		"country": "",
+		"countryEn": "",
+		"air": "83",
+		"air_level": "良",
+		"air_tips": "空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响。",
+		"pm25": "61",
+		"pm25_desc": "良",
+		"pm10": "98",
+		"pm10_desc": "良",
+		"o3": "32",
+		"o3_desc": "",
+		"no2": "87",
+		"no2_desc": "",
+		"so2": "14",
+		"so2_desc": "",
+		"co": "1.1",
+		"co_desc": "",
+		"kouzhao": "不用佩戴口罩",
+		"yundong": "适宜运动",
+		"waichu": "适宜外出",
+		"kaichuang": "适宜开窗",
+		"jinghuaqi": "不需要打开"
+	},
+	"nums": 2
+}
+         */
+        String city = jsonNode.get("city").asText();
+        String w = jsonNode.get("wea").asText();
+        String str =  city + "的天气是" + w;
+        System.out.println(str);
+        return str;
+    }
+
+    public static void main(String[] args) {
+        WeatherClient weatherClient = new WeatherClient();
+        weatherClient.getWeather();
+    }
+}
